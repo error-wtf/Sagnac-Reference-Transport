@@ -6,13 +6,13 @@ import pytest
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 
-from sagnac_reference.analytic import (  # noqa: E402
+from sagnac_reference.analytic import (
     SagnacConfig,
     delta_tau_detector,
     directed_times,
     normalized_asymmetry,
 )
-from sagnac_reference.true_chain import return_time_true_chain  # noqa: E402
+from sagnac_reference.true_chain import return_time_true_chain
 
 
 @pytest.mark.parametrize("lam", [10.0, 100.0])

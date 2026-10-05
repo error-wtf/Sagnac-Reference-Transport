@@ -13,7 +13,7 @@ import pytest
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 
-from sagnac_reference.analytic import (  # noqa: E402
+from sagnac_reference.analytic import (
     SagnacConfig,
     delta_t_axle,
     delta_t_axle_closed,
