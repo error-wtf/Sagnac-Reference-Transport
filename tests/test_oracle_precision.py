@@ -97,7 +97,7 @@ def test_series_partial_matches_exact_up_to_remainder(beta, N):
 def test_series_remainder_bound_is_tight():
     """The remainder bound must be sharp: actual error < bound, same order."""
     cfg = SagnacConfig(1.0, 1.0, 0.5)
-    tp, tm = directed_times(cfg)
+    tp, _ = directed_times(cfg)
     for N in (5, 10, 20):
         err_p = abs(series_partial(cfg, +1, N) - tp)
         bound_p = series_remainder_bound(cfg, +1, N)
