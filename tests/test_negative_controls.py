@@ -1,5 +1,6 @@
 import pytest
-from sagnac_reference.analytic import SagnacConfig, directed_times, delta_t_axle, delta_tau_detector
+
+from sagnac_reference.analytic import SagnacConfig, delta_t_axle, delta_tau_detector, directed_times
 
 
 def test_wrong_branch_sign_is_detected():

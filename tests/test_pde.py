@@ -1,4 +1,5 @@
 import pytest
+
 from sagnac_reference.analytic import SagnacConfig, directed_times
 from sagnac_reference.transport_pde import return_time_pde
 

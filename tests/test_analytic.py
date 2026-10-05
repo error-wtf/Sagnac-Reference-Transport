@@ -1,9 +1,12 @@
-import math
 import pytest
 
 from sagnac_reference.analytic import (
-    SagnacConfig, directed_times, delta_t_axle, delta_t_axle_closed,
-    normalized_asymmetry, series_partial,
+    SagnacConfig,
+    delta_t_axle,
+    delta_t_axle_closed,
+    directed_times,
+    normalized_asymmetry,
+    series_partial,
 )
 
 

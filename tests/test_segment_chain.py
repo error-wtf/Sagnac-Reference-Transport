@@ -1,4 +1,5 @@
 import pytest
+
 from sagnac_reference.analytic import SagnacConfig, directed_times
 from sagnac_reference.segment_chain import return_time_segment_chain
 

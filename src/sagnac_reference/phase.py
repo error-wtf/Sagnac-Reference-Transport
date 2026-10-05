@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import math
+
 from .analytic import SagnacConfig, delta_tau_detector
 
 

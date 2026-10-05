@@ -9,15 +9,14 @@ import json
 import sys
 from pathlib import Path
 
-import numpy as np
-
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 
 from sagnac_reference.analytic import (
-    SagnacConfig, directed_times, delta_t_axle, delta_tau_detector,
-    series_partial, normalized_asymmetry,
+    SagnacConfig,
+    delta_t_axle,
+    delta_tau_detector,
+    directed_times,
 )
-from sagnac_reference.inversion import velocity_from_delta_t, velocity_from_times
 from sagnac_reference.phase import detector_phase
 
 BETA = 0.5

@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
-import math
 
 from .analytic import SagnacConfig
 
@@ -25,7 +24,9 @@ def _signed_relative_increment(cfg: SagnacConfig, direction: int, dt: float) -> 
     raise ValueError("direction must be +1 or -1")
 
 
-def return_time_segment_chain(cfg: SagnacConfig, direction: int, segments: int = 10000) -> ChainResult:
+def return_time_segment_chain(
+    cfg: SagnacConfig, direction: int, segments: int = 10000
+) -> ChainResult:
     """Discrete moving-closure propagation with event interpolation.
 
     The algorithm advances an unwrapped relative coordinate and detects the
