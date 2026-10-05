@@ -78,7 +78,7 @@ The baseline model assumes a prescribed circular optical path in flat spacetime,
 
 ## Status
 
-`SAGNAC_REFERENCE_CLOSURE_PASS` — 10/10 gates (SAG-S1..S10) · 28/28 tests · 10/10 negative controls detected.
+`SAGNAC_REFERENCE_CLOSURE_PASS` — 10/10 gates (SAG-S1..S10) · 74/74 tests · 10/10 negative controls detected · CI green on Python 3.10/3.12/3.14 (ruff gate included).
 
 **Hardening completed 2026-10-05** (convergence study, phase-4/5 rewrite):
 - Convergence campaign (`artifacts/convergence/`) over 13 beta values: Lax-Wendroff route shows observed order ~2 after freezing the pulse width (the baseline `sigma = 6*dx` scaled with the grid and destroyed convergence — root cause documented in `transport_pde.py`).
@@ -86,6 +86,11 @@ The baseline model assumes a prescribed circular optical path in flat spacetime,
 - NEW `true_chain.py`: genuinely independent discrete ring simulation (light and detector positions evolved separately; return located by wrapped-crossing interpolation; no relative-speed formula inside).
 - NEW negative-control battery: 10/10 intentional corruptions detected (`tools/run_negative_controls.py`, `artifacts/negative_controls.json`).
 - Explorative phase-geometry block (`tools/run_phase_geometry.py`): the alternating correction series as damped phasor dynamics — labeled `MATHEMATICAL_CONVERGENCE_GEOMETRY / NOT_PHYSICAL_LIGHT_OSCILLATION`.
+- Second independent PDE route: `transport_pde_upwind.py` (first-order upwind, observed order ~1) — gate SAG-S9 requires BOTH schemes to reproduce the oracle.
+- Beta-scan cross-route regression (`tests/test_beta_scan_regression.py`): 8 betas x 4 routes against frozen tolerances.
+- 50-digit `decimal` cross-check of the closed form, series remainder bounds, small-v limit, direction-swap identity (`tests/test_oracle_precision.py`).
+- Dimensional scaling contracts: `L -> lambda*L` linear time scaling, unit-rescale invariance (`tests/test_scaling_invariance.py`).
+- Gates carry machine-readable provenance in the verdict: statement, formula, implementation, dependencies, tolerance per gate (`gates_detailed` + `dependency_graph` in `artifacts/SAGNAC_REFERENCE_VERDICT.json`).
 
 Commands:
 
