@@ -9,28 +9,29 @@ import json
 import sys
 from pathlib import Path
 
-import numpy as np
 import pytest
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 
-from sagnac_reference.analytic import directed_times  # noqa: E402
-from sagnac_reference.segment_chain import (  # noqa: E402
+from sagnac_reference.analytic import (
+    SagnacConfig,
+    directed_times,
+)
+from sagnac_reference.segment_chain import (
     return_time_segment_chain,
 )
-from sagnac_reference.transport_pde import return_time_pde  # noqa: E402
-from sagnac_reference.transport_pde_upwind import (  # noqa: E402
+from sagnac_reference.transport_pde import return_time_pde
+from sagnac_reference.transport_pde_upwind import (
     return_time_pde_upwind,
 )
-from sagnac_reference.true_chain import return_time_true_chain  # noqa: E402
-
-from sagnac_reference.analytic import SagnacConfig  # noqa: E402
+from sagnac_reference.true_chain import return_time_true_chain
 
 ROOT = Path(__file__).resolve().parents[1]
 CAMPAIGN = ROOT / "artifacts/convergence/convergence_campaign.json"
 
 TOL_PDE = 5e-3          # frozen evaluator tolerance
-TOL_UPWIND = 4e-3       # upwind O(dx) at nx=1200, worst beta 0.8 (measured 1.45e-3 at beta=0.5, 4e-3 covers to beta=0.8 with margin)
+TOL_UPWIND = 4e-3       # upwind O(dx) at nx=1200: measured 1.45e-3 at
+                        # beta=0.5; 4e-3 covers beta=0.8 with margin
 TOL_CHAIN_TRUE = 1e-10
 TOL_CHAIN_SERIES = 1e-4
 
