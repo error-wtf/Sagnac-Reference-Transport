@@ -1,5 +1,8 @@
 # Sagnac Reference Transport
 
+[![Sagnac Reference CI](https://github.com/error-wtf/Sagnac-Reference-Transport/actions/workflows/ci.yml/badge.svg)](https://github.com/error-wtf/Sagnac-Reference-Transport/actions/workflows/ci.yml)
+
+
 Independent, analytically anchored validation harness for transport methods using the idealised circular Sagnac problem in flat spacetime.
 
 This repository is intentionally **SSZ-independent**. Its purpose is to validate a transport architecture against a known reference problem before any later bridge to SSZ or another geometry model is attempted.
