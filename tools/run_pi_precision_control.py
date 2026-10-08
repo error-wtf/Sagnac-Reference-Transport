@@ -19,13 +19,14 @@ Physics stays SSZ-independent. This is a NUMERICS control:
     d > log10(U/epsilon_target)-ish — confirming that NUMERICAL precision
     is a free parameter, categorically different from physical resolution.
 """
+import datetime
 import json
 import math
-import datetime
 import subprocess
 from pathlib import Path
 
-from mpmath import mp, mpf, pi as mpi_pi
+from mpmath import mp, mpf
+from mpmath import pi as mpi_pi
 
 ROOT = Path("/home/error/physics/clones/Sagnac-Reference-Transport")
 
@@ -42,15 +43,8 @@ v = mpf("0.0")           # non-rotating reference: T_p = T_m = L/c (cleanest pi-
 L_exact = 2 * mpi_pi * R
 T_exact = L_exact / c
 
-# pi truncated to d decimals: use mpmath floor on the string
-def pi_truncated(d):
-    s = mp.dps = d + 2
-    pi_full = mpi_pi
-    mp.dps = 50
-    scale = mpf(10) ** d
-    return mpf(math.floor(float(pi_full * scale))) / scale  # via float would lose digits!
-    # better: use mpmath string ops
 def pi_trunc(d):
+    """pi truncated (not rounded) to d decimals via mpmath string ops."""
     mp.dps = d + 5
     s = mp.nstr(mpi_pi, d + 2)
     mp.dps = 50
